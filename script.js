@@ -39,7 +39,7 @@ function operate(num1,oper,num2) {
 function roundCalcDisplay(calcInput) {
     calcInputString = calcInput.toString()
     if (calcInputString.length > 14) {
-        return calcInput.toPrecision();
+        return calcInput.toPrecision(5);
     } else {
         return calcInput;
     }
