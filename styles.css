@@ -1,5 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=VT323&display=swap');
+
+body {
+    background-color: #0086C5;
+}
+
+#calcBody {
+    display: flex;
+    flex-direction: column;
+    background-color: #ED0E0F;
+    border: 10px solid #202021;
+    border-radius: 3%;
+    width: 370px;
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#titleDiv {
+    color: #FFC947;
+    font-family: "Lobster";
+    align-self: center;
+    font-size: 37px;
+}
+
 #calcDisplay {
-    width: 300px;
-    height: 20px;
-    border: 1px solid black;
+    width: 290px;
+    height: 58px;
+    background-color: #EAE9E7;
+    border: 5px solid #202021;
+    text-align: right;
+    padding-right: 5px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    font-family: "VT323", 'Courier New', monospace;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 49px;
+    color: #3D3E40;
+}
+
+#calcButtons {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 320px;
+}
+
+button {
+    background-color: #FBFAFF;
+    border-radius: 10%;
+    border: 5px solid #202021;
+    height: 58px;
+    width: 58px;
+    margin: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    transition-duration: 0.3s;
+}
+
+button:hover {
+    background-color: #EAE9E7;
 }
