@@ -31,13 +31,24 @@ function operate(num1,oper,num2) {
     } else if (oper === "/") {
         return calcDivide(num1,num2);
     } else {
-        return "ERROR"
+        console.log("ERROR: checkTooLong");
+        return "ERROR";
+    }
+}
+
+function roundCalcDisplay(calcInput) {
+    calcInputString = calcInput.toString()
+    if (calcInputString.length > 14) {
+        return calcInput.toPrecision(5);
+    } else {
+        return calcInput;
     }
 }
 
 function checkTooLong (calcInput) {
-    if (calcDisplay.textContent.length > 14) {
+    if (calcInput.length > 14) {
         calcDisplay.textContent = "ERROR"
+        console.log("ERROR: checkTooLong");
     }
 }
 
@@ -65,14 +76,14 @@ function checkCalcInput(calcInput) {
             oper = calcInput;
             calcDisplay.textContent += calcInput;
         } else if (oper !== '' && num2 !== '') {
-            num1 = operate(num1,oper,num2);
+            num1 = roundCalcDisplay(operate(num1,oper,num2));
             oper = calcInput;
             num2 = ''
             calcDisplay.textContent = num1 + calcInput;
         }
     } else if (calcInput === '=') {
         if (oper !== '' && num1 !== '' && num2 !== '') {
-            num1 = operate(num1,oper,num2);
+            num1 = roundCalcDisplay(operate(num1,oper,num2));
             oper = ''
             num2 = ''
             calcDisplay.textContent = num1;
