@@ -1,10 +1,9 @@
 const calcButtons = document.querySelector('#calcButtons');
 let calcDisplay = document.querySelector('#calcDisplay');
 
-let num1;
-let oper;
-let num2;
-let calcDisplayText = "";
+let num1 = '';
+let oper= '';
+let num2 = '';
 
 function calcAdd(num1,num2) {
     return +num1 + +num2;
@@ -36,32 +35,51 @@ function operate(num1,oper,num2) {
     }
 }
 
-
-
-calcButtons.addEventListener("click", (button) => {
-    calcDisplayText += button.target.textContent;
-    calcDisplay.textContent += button.target.textContent;
-    checkCalcInput(calcDisplayText);
-});
+function clearCalc() {
+    num1 = '';
+    oper= '';
+    num2 = '';
+    calcDisplay.textContent = '';
+}
 
 function checkCalcInput(calcInput) {
-    if (calcInput.substr(-1) === "+"
-        || calcInput.substr(-1) === "-"
-        || calcInput.substr(-1) === "*"
-        || calcInput.substr(-1) === "/") {
-        num1 = calcDisplayText.slice(0,-1);
-        oper = calcDisplayText.substr(-1);
-        calcDisplayText = '';
-    } else if (calcInput.substr(-1) === "=") {
-        num2 = calcDisplayText.slice(0,-1);
-        calcDisplay.textContent = operate(num1,oper,num2);
-        num1 = calcDisplay.textContent;
-        calcDisplayText = calcDisplay.textContent;
-    } else if (calcInput.slice(-2) === "ac") {
-        num1 = '';
-        num2 = '';
-        oper = '';
-        calcDisplay.textContent = '';
-        calcDisplayText = '';
+    if (!isNaN(+calcInput)) {
+        console.log("number check")
+        if (oper === '') {
+            console.log("oper check")
+            num1 += calcInput;
+            calcDisplay.textContent += num1;
+        } else {
+            console.log("oper else");
+            num2 += calcInput;
+            calcDisplay.textContent += num2;
+        }
+    } else if (calcInput === '+'
+                || calcInput === '-'
+                || calcInput === '*'
+                || calcInput === '/') {
+        if (oper === '' && num1 !== '' && num2 === '') {
+            oper = calcInput;
+            calcDisplay.textContent += oper;
+        } else if (oper !== '' && num2 !== '') {
+            num1 = operate(num1,oper,num2);
+            oper = calcInput;
+            num2 = ''
+            calcDisplay.textContent = num1 + oper;
+        }
+    } else if (calcInput === '=') {
+        if (oper !== '' && num1 !== '' && num2 !== '') {
+            num1 = operate(num1,oper,num2);
+            oper = ''
+            num2 = ''
+            calcDisplay.textContent = num1;
+        }
+    } else if (calcInput === "ac") {
+        clearCalc();
     }
 }
+
+calcButtons.addEventListener("click", (button) => {
+    checkCalcInput(button.target.textContent);
+    console.log(button.target.textContent);
+});
