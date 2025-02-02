@@ -6,6 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0px;
 }
 
 #calcBody {
@@ -15,7 +16,7 @@ body {
     border: 10px solid #202021;
     border-radius: 3%;
     width: 370px;
-    margin: 20px auto;
+    margin: auto;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -56,7 +57,7 @@ body {
 
 button {
     background-color: #FBFAFF;
-    border-radius: 10%;
+    border-radius: 100%;
     border: 5px solid #202021;
     height: 58px;
     width: 58px;
@@ -65,10 +66,13 @@ button {
     text-transform: uppercase;
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    transition-duration: 0.3s;
+    transform: rotate(-1deg);
+    transition-duration: 0.5s;
+    transition-property: transform;
 }
 
 button:hover {
-    background-color: #EAE9E7;
+    transform: rotate(60deg);
+    transition-duration: 0.5s;
+    transition-property: transform;
 }
