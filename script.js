@@ -80,6 +80,9 @@ function checkCalcInput(calcInput) {
             oper = calcInput;
             num2 = ''
             calcDisplay.textContent = num1 + calcInput;
+        } else if (oper !== '' && num1 !== '' && num2 === '') {
+            oper = calcInput;
+            calcDisplay.textContent = calcDisplay.textContent.slice(0,-1) + oper;
         }
     } else if (calcInput === '=') {
         if (oper !== '' && num1 !== '' && num2 !== '') {
