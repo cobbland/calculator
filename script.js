@@ -44,13 +44,10 @@ function clearCalc() {
 
 function checkCalcInput(calcInput) {
     if (!isNaN(+calcInput)) {
-        console.log("number check")
         if (oper === '') {
-            console.log("oper check")
             num1 += calcInput;
             calcDisplay.textContent += calcInput;
         } else {
-            console.log("oper else");
             num2 += calcInput;
             calcDisplay.textContent += calcInput;
         }
@@ -81,5 +78,4 @@ function checkCalcInput(calcInput) {
 
 calcButtons.addEventListener("click", (button) => {
     checkCalcInput(button.target.textContent);
-    console.log(button.target.textContent);
 });
