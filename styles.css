@@ -2,6 +2,10 @@
 
 body {
     background-color: #0086C5;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #calcBody {
