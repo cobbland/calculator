@@ -48,11 +48,11 @@ function checkCalcInput(calcInput) {
         if (oper === '') {
             console.log("oper check")
             num1 += calcInput;
-            calcDisplay.textContent += num1;
+            calcDisplay.textContent += calcInput;
         } else {
             console.log("oper else");
             num2 += calcInput;
-            calcDisplay.textContent += num2;
+            calcDisplay.textContent += calcInput;
         }
     } else if (calcInput === '+'
                 || calcInput === '-'
@@ -60,12 +60,12 @@ function checkCalcInput(calcInput) {
                 || calcInput === '/') {
         if (oper === '' && num1 !== '' && num2 === '') {
             oper = calcInput;
-            calcDisplay.textContent += oper;
+            calcDisplay.textContent += calcInput;
         } else if (oper !== '' && num2 !== '') {
             num1 = operate(num1,oper,num2);
             oper = calcInput;
             num2 = ''
-            calcDisplay.textContent = num1 + oper;
+            calcDisplay.textContent = num1 + calcInput;
         }
     } else if (calcInput === '=') {
         if (oper !== '' && num1 !== '' && num2 !== '') {
