@@ -31,7 +31,13 @@ function operate(num1,oper,num2) {
     } else if (oper === "/") {
         return calcDivide(num1,num2);
     } else {
-        return "ERROR: Invalid operator"
+        return "ERROR"
+    }
+}
+
+function checkTooLong (calcInput) {
+    if (calcDisplay.textContent.length > 14) {
+        calcDisplay.textContent = "ERROR"
     }
 }
 
@@ -74,6 +80,7 @@ function checkCalcInput(calcInput) {
     } else if (calcInput === "ac") {
         clearCalc();
     }
+    checkTooLong(calcDisplay.textContent);
 }
 
 calcButtons.addEventListener("click", (button) => {
